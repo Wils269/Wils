@@ -1,9 +1,19 @@
-let title = 'первая переменная';
-let screens = 'вторая переменная';
-let screenPrice = 'третяя переменная';
-let rollback = 'четвертая переменная';
-let fullPrice = 'пятая переменная';
-let adaptive = 'шестая переменная';
+let title = 'firstPeoject';
+let screens = "Простые, Cложные, Bнтерактивные";
+let screenPrice = 88;
+let rollback = 13;
+let fullPrice = 150000;
+let adaptive = true;
 
-alert("Внимание! Внимание!")
-console.log("Приветствую Вас!)");
+console.log(typeof title);
+console.log(typeof fullPrice);
+console.log(typeof adaptive);
+
+console.log(screens.length);
+
+console.log(screenPrice+'$');
+console.log(fullPrice+'$');
+
+console.log(screens.toLocaleLowerCase().split(","));
+
+console.log(fullPrice*(rollback/100));
