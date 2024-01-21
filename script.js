@@ -1,46 +1,29 @@
-'use strict';
+let lang = 'ru';
 
-let title = prompt("Как называется ваш проект?");
-console.log(title);
-
-let screens = prompt("Какие типы экранов нужно разработать?", "Простые, Cложные, Интерактивные");
-console.log(screens);
-
-let screenPrice = +prompt("Сколько будет стоить данная работа?", 12000);
-
-let rollback = 13;
-
-let adaptive = prompt("Нужен ли адаптив на сайте?");
-
-if (adaptive == "Да") {
-    console.log(true);
-} else if (adaptive == "да") {
-    console.log(true);
-} else {
-    console.log(false);
-}
-
-let service1 = prompt ("Какой дополнительный тип услуги нужен?");
-let servicePrice1 = +prompt("Сколько это будет стоить?");
-let service2 = prompt ("Какой дополнительный тип услуги нужен?");
-let servicePrice2 = +prompt("Сколько это будет стоить?");
-let fullPrice = screenPrice + servicePrice1 + servicePrice2;
-
-let servicePercentPrice = fullPrice - fullPrice * rollback / 100;
-
-console.log(fullPrice);
-console.log(Math.ceil(servicePercentPrice));
-
-switch (true) {
-    case fullPrice > 30000:
-            console.log("Даем скидку в 10%");
-        break;
-    case fullPrice > 15000 && fullPrice < 30000:
-            console.log("Даем скидку в 5%");
-        break;
-    case fullPrice < 15000 && fullPrice > 0:
-            console.log("Скидка не предусмотрена");
-        break;
-    case fullPrice <= 0:
-            console.log ("Что-то пошло не так")
+if (lang == 'ru') {
+    console.log('пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс');
+} else if (lang == 'en') {
+    console.log('mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn');
 };
+
+
+let language = 'en';
+
+switch (language) {
+    case 'ru':
+        console.log('пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс');
+    break;
+    case 'en':
+        console.log('mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn');
+    break;
+};
+
+let Arr = [];
+    Arr.ru = ['пн', 'вт', 'ср','чт', 'пт', 'сб', 'вс'];
+    Arr.en = ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn'];
+console.log(Arr[lang]);
+
+let namePerson = 'Александр';
+console.log(
+    (namePerson == 'Артем') ? 'Директор' :
+    (namePerson === 'Александр') ? 'Преподователь':'Студент')
