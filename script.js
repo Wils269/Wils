@@ -1,29 +1,66 @@
-let lang = 'ru';
+'use strict';
 
-if (lang == 'ru') {
-    console.log('пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс');
-} else if (lang == 'en') {
-    console.log('mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn');
+let title = prompt("Как называется ваш проект?");
+let screens = prompt("Какие типы экранов нужно разработать?", "Простые, Cложные, Интерактивные");
+let screenPrice = +prompt("Сколько будет стоить данная работа?", 12000);
+let adaptive = confirm("Нужен ли адаптив на сайте?");
+let service1 = prompt ("Какой дополнительный тип услуги нужен?");
+let servicePrice1 = +prompt("Сколько это будет стоить?", 2000);
+let service2 = prompt ("Какой дополнительный тип услуги нужен?");
+let servicePrice2 = +prompt("Сколько это будет стоить?", 1000);
+let rollback = 13;
+
+let allServicePrices;
+let fullPrice;
+let servicePercentPrice;
+
+
+let getAllServicePrices = function () {
+    return servicePrice1 + servicePrice2;
 };
 
+function getFullPrice() {
+    return screenPrice + allServicePrices
+}
 
-let language = 'en';
-
-switch (language) {
-    case 'ru':
-        console.log('пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс');
-    break;
-    case 'en':
-        console.log('mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn');
-    break;
+let getTitle = function() {
+    return title.trim()[0].toUpperCase() + title.trim().toLocaleLowerCase();
 };
 
-let Arr = [];
-    Arr.ru = ['пн', 'вт', 'ср','чт', 'пт', 'сб', 'вс'];
-    Arr.en = ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn'];
-console.log(Arr[lang]);
+function getServicePercentPrices() {
+    return fullPrice - fullPrice * rollback / 100
+}
 
-let namePerson = 'Александр';
-console.log(
-    (namePerson == 'Артем') ? 'Директор' :
-    (namePerson === 'Александр') ? 'Преподователь':'Студент')
+let showTypeOf = function (variable) {
+    console.log(variable, typeof variable);
+};
+
+let getRollBackMassage = function () {
+    if (fullPrice >= 30000) {
+        return "Даем скидку в 10%";
+    } else if (fullPrice >= 15000 && fullPrice < 30000) {
+        return "Даем скидку в 5%";
+    } else if (fullPrice < 15000 && fullPrice >= 0) {
+        return "Скидка не предусмотрена";
+    } else {
+        return "Что-то пошло не так";
+    }
+}
+
+
+allServicePrices = getAllServicePrices();
+fullPrice = getFullPrice();
+servicePercentPrice = getServicePercentPrices();
+title = getTitle();
+
+
+showTypeOf(title);
+showTypeOf(screenPrice);
+showTypeOf(adaptive);
+
+
+console.log(screens);
+console.log(fullPrice);
+console.log(allServicePrices);
+console.log(servicePercentPrice);
+console.log(getRollBackMassage(fullPrice));
